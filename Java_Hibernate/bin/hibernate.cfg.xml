@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-configuration PUBLIC  
+          "-//Hibernate/Hibernate Configuration DTD 3.0//EN"  
+          "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">  
+          
+     <hibernate-configuration>
+          	<session-factory>
+          	
+          		<property name="hibernate.connection.driver_class">oracle.jdbc.driver.OracleDriver</property>
+          		<property name="hibernate.connection.url">jdbc:oracle:thin:@localhost:1521:xe</property>
+          		<property name="hibernate.connection.username">system</property>
+          		<property name="hibernate.connection.password">root</property>
+          		<property name="hibernate.connection.pool_size">1</property>
+          		<property name="hibernate.dialect">org.hibernate.dialect.Oracle10gDialect</property>
+          		<!-- Disable the second-level cache -->
+			<!-- <property name=”cache.provider_class”>org.hibernate.cache.NoCacheProvider</property> -->	
+          		<property name="hibernate.show_sql">true</property>
+          		<property name="hibernate.hbm2ddl.auto">create</property>
+          		
+          		<!--Mention here all model class along with their package name  -->
+          		
+          		
+          		<!-- Mapping for 1-1 mapping -->
+          		<mapping class="com.hibernate.models.Student"/>
+          		<mapping class="com.hibernate.models.StudentDetail"/>
+          		
+          		<!-- Mapping for M-1 mapping -->
+          		<mapping class="com.ManyToOne.Student1"/>
+          		<mapping class="com.ManyToOne.StudentAddress"/>
+          		
+          		<!-- mapping for M-M Relationship -->
+          		<mapping class="com.ManyToMany.Student2"/>
+          		<mapping class="com.ManyToMany.StdCertification"/>
+          		
+          		<mapping class="com.Queries.Hql"/> 
+          		
+          		<mapping class="com.Crud.BasicCrud"/>
+          	</session-factory>     
+   </hibernate-configuration> 
